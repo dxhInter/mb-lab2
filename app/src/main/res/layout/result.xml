@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/res_title"
         tools:text="Date" />
 
-    <TextView
+    <me.grantland.widget.AutofitTextView
         android:id="@+id/res_description"
         android:layout_width="377dp"
         android:layout_height="474dp"
@@ -54,6 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/res_date"
         app:layout_constraintVertical_bias="0.866"
+        android:textSize="12sp"
+        autofit:minTextSize="10sp"
         tools:text="Description" />
 
     <TextView
