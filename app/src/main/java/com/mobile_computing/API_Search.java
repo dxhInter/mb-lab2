@@ -75,9 +75,7 @@ public class API_Search extends Activity {
                 datumApiSearch.setM_imageUrl(imageUrl);
 
                 Intent intent = new Intent(API_Search.this, ResultDisplayActivity.class);
-
                 intent.putExtra("datumApiSearch", datumApiSearch);
-
                 log.debug(":::" + datumApiSearch.id());
 
                 startActivity(intent);
