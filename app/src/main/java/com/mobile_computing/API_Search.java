@@ -30,6 +30,7 @@ public class API_Search extends Activity {
     private final String API_URL = "http://10.20.0.5:8080/api/s/";
     private final String LOG_TAG = "MOBILE COMPUTING";
 
+    // enable logging
     Logger log = LoggerFactory.getLogger(API_Search.class);
 
     private RecyclerView m_recView;
