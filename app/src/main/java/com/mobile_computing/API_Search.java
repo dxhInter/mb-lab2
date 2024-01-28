@@ -1,6 +1,7 @@
 package com.mobile_computing;
 
 import org.json.*;
+import org.slf4j.LoggerFactory;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -11,18 +12,25 @@ import com.android.volley.RequestQueue;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 public class API_Search extends Activity {
 
+
     private final String API_URL = "http://10.20.0.5:8080/api/s/";
     private final String LOG_TAG = "MOBILE COMPUTING";
+
+    Logger log = LoggerFactory.getLogger(API_Search.class);
 
     private RecyclerView m_recView;
     private RecyclerView.Adapter m_adapter;
@@ -48,9 +56,31 @@ public class API_Search extends Activity {
         ((DatumAdapter) m_adapter).setOnItemClickListener(new DatumAdapter.DatumClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                String msg = "Item with ID: " + ((DatumAdapter) m_adapter).getItem(position).id();
-                Toast toast = Toast.makeText(self, msg, Toast.LENGTH_SHORT);
-                toast.show();
+                // todo - implement this result display activity
+//                String msg = "Item with ID: " + ((DatumAdapter) m_adapter).getItem(position).id();
+//                Toast toast = Toast.makeText(self, msg, Toast.LENGTH_SHORT);
+//                toast.show();
+                Datum item = ((DatumAdapter) m_adapter).getItem(position);
+                int id = item.id();
+                String date = item.date();
+                String title = item.title();
+                String text = item.text();
+                String imageUrl = item.imageUrl();
+
+                Datum datumApiSearch = new Datum();
+                datumApiSearch.setM_id(id);
+                datumApiSearch.setM_date(date);
+                datumApiSearch.setM_title(title);
+                datumApiSearch.setM_text(text);
+                datumApiSearch.setM_imageUrl(imageUrl);
+
+                Intent intent = new Intent(API_Search.this, ResultDisplayActivity.class);
+
+                intent.putExtra("datumApiSearch", datumApiSearch);
+
+                log.debug(":::" + datumApiSearch.id());
+
+                startActivity(intent);
             }
         });
 
