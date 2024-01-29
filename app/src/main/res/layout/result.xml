@@ -16,9 +16,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="192dp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/res_title"
@@ -26,38 +25,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginEnd="124dp"
+        app:layout_constraintStart_toEndOf="@+id/res_image"
+        app:layout_constraintTop_toTopOf="@+id/res_image"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="26dp"
         tools:text="Title" />
 
     <TextView
         android:id="@+id/res_date"
         style="@style/TextAppearance.AppCompat.Small"
-        android:layout_width="66dp"
-        android:layout_height="32dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="96dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/res_image"
         app:layout_constraintTop_toBottomOf="@+id/res_title"
         tools:text="Date" />
-
-    <me.grantland.widget.AutofitTextView
-        android:id="@+id/res_description"
-        android:layout_width="377dp"
-        android:layout_height="474dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/res_date"
-        app:layout_constraintVertical_bias="0.866"
-        android:textSize="12sp"
-        autofit:minTextSize="10sp"
-        tools:text="Description" />
 
     <TextView
         android:id="@+id/res_id"
@@ -66,9 +49,30 @@
         android:layout_height="34dp"
         android:visibility="visible"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="147dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="250dp"
+        tools:layout_editor_absoluteY="165dp"
+        app:layout_constraintStart_toEndOf="@+id/res_image"
+        app:layout_constraintTop_toBottomOf="@+id/res_date"
         tools:text="ID"
         tools:visibility="visible" />
+
+    <ScrollView
+        android:layout_width="367dp"
+        android:layout_height="502dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res_image"
+        autofit:layout_constraintHorizontal_bias="1.0"
+        autofit:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/res_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Description" />
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
