@@ -58,7 +58,7 @@
         tools:visibility="visible" />
 
     <ImageButton
-        android:id="@+id/starButton"
+        android:id="@+id/startButton"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginHorizontal="16dp"
@@ -66,7 +66,7 @@
         android:layout_marginTop="52dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_star_outline"
+        android:src="@drawable/ic_star_filled"
         app:layout_constraintStart_toEndOf="@+id/res_image"
         app:layout_constraintTop_toBottomOf="@+id/res_date" />
 
@@ -84,7 +84,8 @@
             android:id="@+id/res_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Description" />
+            tools:text="Description"
+            />
     </ScrollView>
 
 

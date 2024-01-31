@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import com.mobile_computing.FavoriteService;
 import com.mobile_computing.MobileComputingApplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class FavoriteServiceImpl implements FavoriteService {
      */
     @Override
     public List<String> queryFavoriteList() {
-        return null;
+        return new ArrayList<>();
     }
 
     /**

@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.mobile_computing.impl.FavoriteServiceImpl;
 
 import java.io.Serializable;
 
@@ -24,10 +28,17 @@ public class ResultDisplayActivity extends AppCompatActivity {
 
     private static ActionBar actionBar;
 
+    private static FavoriteService favoriteService;
+
+    public static final String favoriteTitle = ": your_favorite";
+    public static final String unFavoriteTitle = ": un_favorite";
+    private ImageButton starButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
+        favoriteService = new FavoriteServiceImpl();
         Intent intent = getIntent();
         Serializable serializeResult = intent.getSerializableExtra("datumApiSearch");
         if (!(serializeResult instanceof Datum)) {
@@ -57,11 +68,26 @@ public class ResultDisplayActivity extends AppCompatActivity {
             TextView idView = (TextView) findViewById(R.id.res_id);
             TextView textView = (TextView) findViewById(R.id.res_description);
             ImageView imageView = (ImageView) findViewById(R.id.res_image);
+            starButton = (ImageButton) findViewById(R.id.startButton);
             titleView.setText(title);
             dataView.setText(date);
             textView.setText(text);
             idView.setText(String.valueOf(id));
+            isFavorite(id,title);
             // todo - set the image view
+        }
+    }
+
+    private void isFavorite(Integer id, String title) {
+        boolean res = favoriteService.queryFavoriteList().contains(id);
+        if (res) {
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setTitle(title + favoriteTitle);
+            starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_filled));
+        } else {
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setTitle(title + unFavoriteTitle);
+            starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_outline));
         }
     }
 
