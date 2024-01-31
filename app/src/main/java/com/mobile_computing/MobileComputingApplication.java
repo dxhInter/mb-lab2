@@ -4,15 +4,16 @@ import android.app.Application;
 
 public class MobileComputingApplication extends Application {
 
-    private static MobileComputingApplication application;
+    private static MobileComputingApplication instance;
+    public static final String PREFERENCE_FILE_NAME = "MOBILE_COMPUTING_PREFERENCE";
 
-    public static MobileComputingApplication getApplication() {
-        return application;
+    public static MobileComputingApplication getInstance() {
+        return instance;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        application = this;
+        instance = this;
     }
 }
