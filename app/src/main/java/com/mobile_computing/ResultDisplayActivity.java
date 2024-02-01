@@ -78,8 +78,8 @@ public class ResultDisplayActivity extends AppCompatActivity {
         }
     }
 
-    private void isFavorite(Integer id, String title) {
-        boolean res = favoriteService.queryFavoriteList().contains(id);
+    private void isFavorite(int id, String title) {
+        boolean res = favoriteService.queryFavoriteList().contains(String.valueOf(id));
         if (res) {
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setTitle(title + favoriteTitle);
@@ -88,6 +88,16 @@ public class ResultDisplayActivity extends AppCompatActivity {
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setTitle(title + unFavoriteTitle);
             starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_outline));
+            starButton.setOnClickListener(v -> {
+                boolean isSuccess = favoriteService.addBook2FavoriteList(id);
+                if (isSuccess) {
+                    starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_filled));
+                    actionBar.setDisplayShowTitleEnabled(true);
+                    actionBar.setTitle(title + favoriteTitle);
+                } else {
+                    Log.e("STARBUTTON", "isFavorite: ", new Exception("Failed to add to favorite list"));
+                }
+            });
         }
     }
 

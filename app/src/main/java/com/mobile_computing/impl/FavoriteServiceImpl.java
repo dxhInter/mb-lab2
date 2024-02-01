@@ -8,6 +8,7 @@ import com.mobile_computing.FavoriteService;
 import com.mobile_computing.MobileComputingApplication;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,6 +17,10 @@ import java.util.List;
  */
 public class FavoriteServiceImpl implements FavoriteService {
     private static final SharedPreferences preferences;
+
+    private static List<String> cacheList = null;
+
+    public static final String FAVORITES_BOOKS = "favorites_books";
 
     static {
         Context context = MobileComputingApplication.getInstance();
@@ -28,7 +33,17 @@ public class FavoriteServiceImpl implements FavoriteService {
      */
     @Override
     public List<String> queryFavoriteList() {
-        return new ArrayList<>();
+        if (cacheList == null) {
+            if (preferences.contains(FAVORITES_BOOKS)) {
+                String favoriteBooks = preferences.getString(FAVORITES_BOOKS, "");
+                if (favoriteBooks != null) {
+                    cacheList = new ArrayList<>(Arrays.asList(favoriteBooks.split(";")));
+                    return cacheList;
+                }
+            }
+            cacheList = new ArrayList<>();
+        }
+        return cacheList;
     }
 
     /**
@@ -37,7 +52,9 @@ public class FavoriteServiceImpl implements FavoriteService {
      */
     @Override
     public void setFavoriteList(List<String> favoriteList) {
-
+        String favoriteBooks = String.join(";", favoriteList);
+        // apply() is asynchronous, commit() is synchronous
+        preferences.edit().putString(FAVORITES_BOOKS, favoriteBooks).apply();
     }
 
     /**
@@ -47,6 +64,12 @@ public class FavoriteServiceImpl implements FavoriteService {
      */
     @Override
     public boolean addBook2FavoriteList(int id) {
+        List<String> queriedFavoriteList = queryFavoriteList();
+        if (!queriedFavoriteList.contains(String.valueOf(id))) {
+            queriedFavoriteList.add(String.valueOf(id));
+            setFavoriteList(queriedFavoriteList);
+            return true;
+        }
         return false;
     }
 
