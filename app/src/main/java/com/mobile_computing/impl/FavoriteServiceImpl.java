@@ -18,6 +18,7 @@ import java.util.List;
 public class FavoriteServiceImpl implements FavoriteService {
     private static final SharedPreferences preferences;
 
+    // cache the list of favorite books
     private static List<String> cacheList = null;
 
     public static final String FAVORITES_BOOKS = "favorites_books";
@@ -80,6 +81,12 @@ public class FavoriteServiceImpl implements FavoriteService {
      */
     @Override
     public boolean removeBookFromFavoriteList(int id) {
+        List<String> queriedFavoriteList = queryFavoriteList();
+        if (queriedFavoriteList.contains(String.valueOf(id))) {
+            queriedFavoriteList.remove(String.valueOf(id));
+            setFavoriteList(queriedFavoriteList);
+            return true;
+        }
         return false;
     }
 }
