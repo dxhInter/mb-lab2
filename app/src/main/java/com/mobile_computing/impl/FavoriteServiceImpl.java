@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * This class implements the favorite service
  * @author dxh
  * @date 2024/1/31
  */
@@ -21,7 +22,7 @@ public class FavoriteServiceImpl implements FavoriteService {
     // cache the list of favorite books
     private static List<String> cacheList = null;
 
-    public static final String FAVORITES_BOOKS = "favorites_books";
+    public static final String FAVORITES_BOOKS = "favorite_books";
 
     static {
         Context context = MobileComputingApplication.getInstance();
@@ -60,7 +61,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
     /**
      * When a user marks an item as favorite, adds the ID to the list of favorites and updates it in Shared Preferences.
-     * @param id the ID of the item marked as favorite.
+     * @param id the ID of the book marked as favorite.
      * @return true means success, false otherwise
      */
     @Override
@@ -76,7 +77,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
     /**
      * When a user cancel star on the book, removes the ID from the list of favorites and updates it in Shared Preferences.
-     * @param id the ID of the item marked as favorite.
+     * @param id the ID of the book marked as favorite.
      * @return true means success, false otherwise
      */
     @Override
