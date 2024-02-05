@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/APISearchAndroid.iml" filepath="$PROJECT_DIR$/APISearchAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/APISearchAndroid.app.unitTest.iml" />
