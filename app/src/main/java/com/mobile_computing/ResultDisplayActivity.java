@@ -31,9 +31,13 @@ public class ResultDisplayActivity extends AppCompatActivity {
 
     private static FavoriteService favoriteService;
 
+    // The title of the book with favorite status in the action bar
     public static final String FAVORITE_TITLE = ": your_favorite";
+    // The status of the book with favorite status in result page
     public static final String FAVORITE_STATUS = "your favorite book";
+    // The title of the book with not favorite status in the action bar
     public static final String NOT_FAVORITE_TITLE = ": not_favorite";
+    // The status of the book with not favorite status in result page
     public static final String NOT_FAVORITE_STATUS = "not favorite book";
     // The favorite status of the book
     private static boolean isFavorite = false;
@@ -69,7 +73,6 @@ public class ResultDisplayActivity extends AppCompatActivity {
 
             TextView titleView = (TextView) findViewById(R.id.res_title);
             TextView dataView = (TextView) findViewById(R.id.res_date);
-//            TextView idView = (TextView) findViewById(R.id.res_id);
             TextView textView = (TextView) findViewById(R.id.res_description);
             ImageView imageView = (ImageView) findViewById(R.id.res_image);
             starButton = (ImageButton) findViewById(R.id.startButton);
@@ -128,15 +131,15 @@ public class ResultDisplayActivity extends AppCompatActivity {
      * @param title the title of the book
      */
     private void updateStarButtonAppearance(String title) {
-        TextView idView = (TextView) findViewById(R.id.res_id);
+        TextView statusView = (TextView) findViewById(R.id.res_status);
         if (isFavorite) {
             actionBar.setTitle(title + FAVORITE_TITLE);
             starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_filled));
-            idView.setText(FAVORITE_STATUS);
+            statusView.setText(FAVORITE_STATUS);
         } else {
             actionBar.setTitle(title + NOT_FAVORITE_TITLE);
             starButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_star_outline));
-            idView.setText(NOT_FAVORITE_STATUS);
+            statusView.setText(NOT_FAVORITE_STATUS);
         }
     }
 
