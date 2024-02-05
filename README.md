@@ -2,6 +2,9 @@
 
 This project implements a favorites feature in an Android application, allowing users to mark and manage their favorite items. It leverages a `FavoriteService` interface for abstraction and `FavoriteServiceImpl` for concrete implementation, using `SharedPreferences` for persistent storage. The application uses `Intent` to transmit `Datum` objects from `API_Search` activity to `ResultDisplayActivity`, where item details are displayed. Users can toggle the favorite status of items, which is reflected in the UI updates and stored in `SharedPreferences`.
 
+## Screenshots:
+![avatar](https://github.com/dxhInter/mb-lab2/blob/master/env-setup.jpg)
+
 ## Key Components:
 - **FavoriteService Interface:** Defines the contract for favorite item operations.
 - **FavoriteServiceImpl:** Implements favorite management functionality.
