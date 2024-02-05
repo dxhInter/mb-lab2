@@ -12,6 +12,10 @@ This project implements a favorites feature in an Android application, allowing 
 - UI reflects favorite status.
 - Persistent favorites list using `SharedPreferences`.
 - Asynchronous image loading with Picasso.
+- Logging with Slf4j.
+- Double-checking method for singleton instantiation.
+- Action bar with back button and set title dynamically.
+
 ## Dependencies:
 - Picasso for image loading
 - Slf4j for logging

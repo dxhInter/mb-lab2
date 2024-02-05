@@ -27,8 +27,8 @@ import org.slf4j.Logger;
 public class API_Search extends Activity {
 
 
-//    private static final String API_URL = "http://10.20.0.5:8080/api/s/";
-    private static final String API_URL = "http://10.136.84.202:8080/api/s/";
+    private static final String API_URL = "http://10.20.0.7:8080/api/s/";
+//    private static final String API_URL = "http://10.136.84.202:8080/api/s/";
     private static final String LOG_TAG = "MOBILE COMPUTING";
 
     // enable logging
