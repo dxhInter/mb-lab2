@@ -42,3 +42,4 @@ To use this project, import it into Android Studio. Besides, there are 2 APKs in
 - Slf4j for logging
 - JUnit for testing
 
+[!img](https://bjtueducn-my.sharepoint.com/personal/17281207_bjtu_edu_cn/_layouts/15/embed.aspx?UniqueId=106053ae-9a8a-42a8-81db-680d653e45dc)
