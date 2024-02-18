@@ -41,5 +41,3 @@ To use this project, import it into Android Studio. Besides, there are 2 APKs in
 - Picasso for image loading
 - Slf4j for logging
 - JUnit for testing
-
-<iframe src="https://bjtueducn-my.sharepoint.com/personal/17281207_bjtu_edu_cn/_layouts/15/embed.aspx?UniqueId=106053ae-9a8a-42a8-81db-680d653e45dc" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="截屏2024-02-15 20.33.33.png"></iframe>
